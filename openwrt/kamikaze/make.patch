@@ -1,0 +1,19 @@
+--- a/Makefile
++++ b/Makefile
+@@ -36,13 +36,13 @@
+
+ DOCS=edge.8.gz supernode.1.gz
+ 
+-all: $(APPS) #$(DOCS)
++all: $(APPS) 
+ 
+ edge: edge.c $(N2N_LIB) n2n.h Makefile
+-	$(CC) $(CFLAGS) edge.c $(N2N_LIB) $(LIBS) -o edge
++	$(CC) $(CFLAGS) edge.c $(N2N_LIB) $(LIBS) $(LDFLAGS) -o edge
+ 
+ supernode: supernode.c $(N2N_LIB) n2n.h Makefile
+-	$(CC) $(CFLAGS) supernode.c $(N2N_LIB) $(LIBS) -o supernode
++	$(CC) $(CFLAGS) supernode.c $(N2N_LIB) $(LIBS) $(LDFLAGS) -o supernode
+ 
+ .c.o: n2n.h Makefile
+ 	$(CC) $(CFLAGS) -c $<
