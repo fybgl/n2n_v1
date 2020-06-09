@@ -2,29 +2,18 @@
 # Copyright (C) 2008 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
-
-
 include $(TOPDIR)/rules.mk
 
-PKG_BRANCH:=trunk
-PKG_SOURCE_URL:=https://svn.ntop.org/svn/ntop/trunk/n2n
-PKG_REV:=$(shell LC_ALL=C svn info ${PKG_SOURCE_URL} | sed -ne's/^Last Changed Rev: //p')
-
 PKG_NAME:=n2n
-PKG_VERSION:=svn$(PKG_REV)
+PKG_VERSION:=v1.3.2
+PKG_REV:=171cd793421776d52224b75f28639e3aca743c29
 PKG_RELEASE:=1
 
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
-PKG_SOURCE_PROTO:=svn
+PKG_SOURCE_URL:=https://github.com/fybgl/n2n_v1.git
+PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
-
-PKG_BUILD_DEPENDS:=
-
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
-PKG_INSTALL_DIR:=$(PKG_BUILD_DIR)
-
-
 
 include $(INCLUDE_DIR)/package.mk
 
